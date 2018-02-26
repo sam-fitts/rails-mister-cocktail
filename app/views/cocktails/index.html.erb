@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="navbar-wagon">
 
-<h1>Cocktails</h1>
+<div class="container">
+  <h1>Cocktails</h1>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+      <ul>
+        <% @cocktails.each do |x| %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+        <li class="card"> <%= link_to "#{x.name}", cocktail_path(x) %> </li>
+        </div>
+        <% end %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <%= link_to "Add a Cocktail", new_cocktail_path %>
+          </div>
+        </div>
 
-  <tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= link_to 'Show', cocktail %></td>
-        <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
-        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </ul>
+    </div>
+</div>
 
-<br>
-
-<%= link_to 'New Cocktail', new_cocktail_path %>
